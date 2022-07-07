@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+span.user {
+    font-weight: bold;
+    /* margin: 5px; */
+    background-color: lightblue;
+    border: 1px;
+    border-radius: 3px;
+    /* padding: 0 2.5px; */
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

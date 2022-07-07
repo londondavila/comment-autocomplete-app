@@ -1,0 +1,16 @@
+<p>autocomplete works!</p>
+
+<ul
+    *ngIf="choices?.length > 0"
+    #dropdown
+    class="dropdown-menu">
+    <li
+        *ngFor="let choice of choices; trackBy: trackById"
+        [class.active]="activeChoice === choice">
+        <a 
+            href="javascript:;"
+            (click)="selectChoice.next(choice)">
+            {{ choice }}
+        </a>
+    </li>
+</ul>

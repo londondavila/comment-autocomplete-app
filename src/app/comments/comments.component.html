@@ -1,0 +1,42 @@
+<!-- HEADER -->
+<div class="comment-box">
+  <h3>Comments:</h3>
+  <div id="comments-list">
+      <ul>
+        <li *ngFor="let comment of comments">
+          <p [innerHTML]="comment.message"></p>
+          <!-- {{ comment.message }} -->
+        </li>
+      </ul>
+  </div>
+
+  <!-- FORM -->
+  <form [formGroup]="formGroup" (ngSubmit)="onAddComment()">
+      <!-- <input type="text" [FormControl]="userSearch" (input)="onUserSearch()"> -->
+      <!-- <input type="text"> -->
+      <textarea
+        class="comment-form-textarea"
+        (keydown.f)="onKeyPressEvent($event)"
+        [(ngModel)]="textarea"
+        formControlName="text"
+        contenteditable="true">
+      </textarea>
+      <button class="comment-form-button" type="submit">Add Comment</button>
+
+      <!-- autocomplete -->
+      <div *ngIf="panelOpen">
+        <ul class="dropdown-menu">
+          <li
+            *ngFor="let user of users | searchFilter: hidden"
+            (click)="select(user.name)"
+            ngDefaultControl
+            [innerHTML]="user.name"
+            formControlName="list">
+                <!-- {{ user }} -->
+          </li>
+        </ul>
+      </div>
+  </form>
+</div>
+
+<div [(ngModel)]="hidden" style="display: none">{{ hidden }}</div>

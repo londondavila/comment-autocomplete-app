@@ -1,0 +1,10 @@
+h3 { font-weight: bolder }
+:host {
+    position: absolute;
+    display: block;
+}
+.dropdown-menu {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+}
